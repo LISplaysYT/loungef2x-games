@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clever | Portal</title>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta name="google-adsense-account" content="ca-pub-8655131518824482">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="tabcloaker.js"></script>
+    <script>Help()</script>
+    <link rel="icon" type="image/png" href="/static/images/clever.jpg">
+    <script src="https://cdn.jsdelivr.net/npm/typeit@7.0.4/dist/typeit.min.js"></script>
+    <script src="navbar.js"></script>
+    <script src="particles.js"></script>
+    <script>document.addEventListener("DOMContentLoaded", () => { cloakAll(); });</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JC8E4VJGL9"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8655131518824482" crossorigin="anonymous"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-JC8E4VJGL9');
+    </script>
+    <script>Help1()</script>
+    <style>
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            z-index: -1;
+        }
+
+        #main {
+            position: relative;
+            z-index: 1;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 24px 12px 12px;
+        }
+
+        .hero h1 {
+            margin: 0.2rem 0;
+        }
+
+        #splash {
+            display: inline-block;
+            margin-top: 0.35rem;
+            color: #ddd;
+        }
+
+        .secret-mode {
+            color: red;
+            animation: secret-glow 2s infinite alternate;
+        }
+
+        @keyframes secret-glow {
+            0% { text-shadow: 0 0 10px red; }
+            100% { text-shadow: 0 0 20px red; }
+        }
+
+        .games-content {
+            padding: 0 10px 2rem;
+        }
+
+        .game-search-wrap {
+            text-align: center;
+            margin: 0 auto 1rem;
+        }
+
+        .games-count {
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            color: #ddd;
+        }
+
+        .game-search-input {
+            padding: 10px;
+            width: 100%;
+            max-width: 320px;
+            border: 2px solid red;
+            background: black;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            padding: 0 10px;
+            width: 100%;
+        }
+
+        .game-container a {
+            display: block;
+            position: relative;
+            background: black;
+            color: red;
+            border: 2px solid red;
+            border-radius: 5px;
+            text-decoration: none;
+            width: 200px;
+            overflow: hidden;
+            transition: .3s;
+            aspect-ratio: 4 / 5;
+        }
+
+        .game-container a img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .game-container a p {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            padding: 8px;
+            background: rgba(0, 0, 0, .75);
+            text-align: center;
+        }
+
+        .game-container a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px red;
+        }
+
+        .game-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .9);
+            display: none;
+            flex-direction: column;
+            z-index: 10000000000000002;
+        }
+
+        .game-overlay-navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 24px;
+            height: 64px;
+            background: #111;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .6);
+        }
+
+        .game-overlay-navbar span#game-overlay-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: .03em;
+        }
+
+        .game-overlay-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .game-overlay-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 110px;
+            height: 44px;
+            padding: 0 14px;
+            border: none;
+            border-radius: 10px;
+            background: #222;
+            color: #eee;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: .02em;
+            transition: background .2s, transform .15s;
+        }
+
+        .game-overlay-btn:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        .game-overlay-btn.close-btn:hover {
+            background: #8b1f1f;
+        }
+
+        .game-overlay-frame-wrap {
+            flex: 1;
+            position: relative;
+        }
+
+        .game-overlay-frame-wrap iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="main">
+        <div class="hero">
+            <h1>LoungeF2X</h1>
+            <h1><span class="typing_desc"></span></h1>
+            <span id="splash"></span>
+        </div>
+
+        <div class="game-search-wrap">
+            <input type="text" id="game-search" class="game-search-input" placeholder="Search games..." autocomplete="off">
+            <div id="games-count" class="games-count"></div>
+        </div>
+
+        <div class="games-content" id="games-list">
+            <div class="game-container" id="game-container"></div>
+        </div>
+
+        <div id="game-overlay" class="game-overlay">
+            <div class="game-overlay-navbar">
+                <span id="game-overlay-title">Game</span>
+                <div class="game-overlay-buttons">
+                    <button id="game-btn-fullscreen" class="game-overlay-btn" title="Fullscreen">Fullscreen</button>
+                    <button id="game-btn-newtab" class="game-overlay-btn" title="Open in new tab">New tab</button>
+                    <button id="game-btn-download" class="game-overlay-btn" title="Download">Download</button>
+                    <button id="game-btn-close" class="game-overlay-btn close-btn" title="Close">Close</button>
+                </div>
+            </div>
+            <div class="game-overlay-frame-wrap">
+                <iframe id="game-overlay-frame" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            new TypeIt(".typing_desc", {
+                speed: 90,
+                waitUntilVisible: true,
+                startDelay: 1000
+            })
+            .type("A place to play Games, LoungeF2X.")
+            .move(-12)
+            .delete(10)
+            .type("use Apps")
+            .move(12)
+            .go();
+
+            fetch('splash.json')
+                .then((res) => res.json())
+                .then((data) => {
+                    document.querySelector('#splash').innerHTML = data[Math.floor(Math.random() * data.length)];
+                });
+
+            var search = document.getElementById("game-search");
+            var gamesList = document.getElementById("games-list");
+            var gameContainer = document.getElementById("game-container");
+            var gamesCount = document.getElementById("games-count");
+            var cards = [];
+            var overlay = document.getElementById("game-overlay");
+            var frame = document.getElementById("game-overlay-frame");
+            var title = document.getElementById("game-overlay-title");
+            var totalGamesLoaded = 0;
+
+            function updateGamesCount(visibleCount) {
+                if (!gamesCount) return;
+                gamesCount.textContent = `Games loaded: ${visibleCount}/${totalGamesLoaded}`;
+            }
+
+            function normalizeName(name) {
+                name = (name || "Game").trim();
+                name = name.replace(/\s+Play Now\s*→\s*$/i, "");
+                name = name.replace(/\s+Play Now\s*->\s*$/i, "");
+                name = name.replace(/\s+Play Now\s*$/i, "");
+                if (name.includes("…")) name = name.split("…")[0].trim();
+                return name;
+            }
+
+            function slugFromUrl(url) {
+                try {
+                    var p = new URL(url, location.href).pathname.split("/").filter(Boolean).pop() || "game";
+                    return p.toLowerCase();
+                } catch (e) {
+                    return "game";
+                }
+            }
+
+            function imgSlugFromName(name) {
+                name = normalizeName(name);
+                return name.toLowerCase().replace(/&/g, "and").replace(/[^a-z0-9]+/g, "").trim() || "game";
+            }
+
+            function resolveImgCandidates(g, url, name) {
+                var raw = (g.img || g.image || g.thumbnail || "");
+                raw = typeof raw === "string" ? raw.trim() : "";
+                var candidates = [];
+
+                function pushIf(s) {
+                    if (s && !candidates.includes(s)) candidates.push(s);
+                }
+
+                if (raw) {
+                    if (raw.startsWith("/") || raw.startsWith("http")) pushIf(raw);
+                    else pushIf("/static/images/" + raw);
+                }
+
+                var nameSlug = imgSlugFromName(name);
+                pushIf("/static/images/" + nameSlug + ".png");
+                pushIf("/static/images/" + nameSlug + ".webp");
+                pushIf("/static/images/" + nameSlug + ".jpg");
+                pushIf("/static/images/" + nameSlug + ".jpeg");
+
+                var urlSlug = slugFromUrl(url);
+                pushIf("/static/images/" + urlSlug + ".png");
+                pushIf("/static/images/" + urlSlug + ".webp");
+                pushIf("/static/images/" + urlSlug + ".jpg");
+                pushIf("/static/images/" + urlSlug + ".jpeg");
+                pushIf("/static/images/game-placeholder.svg");
+                return candidates;
+            }
+
+            function setImgWithFallback(imgEl, candidates) {
+                var i = 0;
+                function setNext() {
+                    imgEl.src = candidates[i] || "/static/images/game-placeholder.svg";
+                }
+                imgEl.onerror = function () {
+                    i++;
+                    if (i >= candidates.length) {
+                        imgEl.onerror = null;
+                        imgEl.src = "/static/images/game-placeholder.svg";
+                        return;
+                    }
+                    setNext();
+                };
+                setNext();
+            }
+
+            function renderGames(games) {
+                if (!gameContainer) return;
+                gameContainer.innerHTML = "";
+                totalGamesLoaded = 0;
+                games.forEach(function (g) {
+                    var name = normalizeName(g.name);
+                    var url = (g.url || "").trim();
+                    if (!url) return;
+                    totalGamesLoaded++;
+
+                    var wrap = document.createElement("div");
+                    var a = document.createElement("a");
+                    a.href = url;
+
+                    var img = document.createElement("img");
+                    setImgWithFallback(img, resolveImgCandidates(g, url, name));
+                    img.alt = "";
+
+                    var p = document.createElement("p");
+                    p.textContent = name;
+
+                    var center = document.createElement("center");
+                    center.appendChild(p);
+
+                    a.appendChild(img);
+                    a.appendChild(center);
+                    wrap.appendChild(a);
+                    gameContainer.appendChild(wrap);
+                });
+                cards = Array.from(gameContainer.querySelectorAll("a"));
+                updateGamesCount(cards.length);
+            }
+
+            fetch("/static/games.json")
+                .then(function (r) { return r.json(); })
+                .then(function (data) {
+                    if (Array.isArray(data)) renderGames(data);
+                    else if (data && Array.isArray(data.games)) renderGames(data.games);
+                    else renderGames([]);
+                })
+                .catch(function () { renderGames([]); });
+
+            search.addEventListener("input", function () {
+                var q = this.value.toLowerCase();
+                var anyVisible = false;
+                var visibleCount = 0;
+                cards.forEach(function (card) {
+                    var text = card.querySelector("p").textContent.toLowerCase();
+                    var match = text.includes(q);
+                    var wrapper = card.parentElement || card;
+                    wrapper.style.display = match ? "" : "none";
+                    if (match) {
+                        anyVisible = true;
+                        visibleCount++;
+                    }
+                });
+                window.scrollTo(0, 0);
+                updateGamesCount(visibleCount);
+                var msg = document.getElementById("no-results");
+                if (!msg) {
+                    msg = document.createElement("div");
+                    msg.id = "no-results";
+                    msg.style.color = "red";
+                    msg.style.textAlign = "center";
+                    msg.style.marginTop = "8px";
+                    gamesList.parentNode.insertBefore(msg, gamesList.nextSibling);
+                }
+                msg.textContent = anyVisible ? "" : "No games found.";
+                msg.style.display = anyVisible ? "none" : "block";
+            });
+
+            document.addEventListener("click", function (e) {
+                var link = e.target && e.target.closest ? e.target.closest(".game-container a") : null;
+                if (!link) return;
+                e.preventDefault();
+                overlay.style.display = "flex";
+                frame.src = link.href;
+                title.textContent = link.querySelector("p").textContent;
+                var navbar = document.querySelector(".navbar");
+                if (navbar) {
+                    navbar.dataset.prevDisplay = navbar.style.display || "";
+                    navbar.style.display = "none";
+                }
+            });
+
+            document.getElementById("game-btn-close").onclick = function () {
+                overlay.style.display = "none";
+                frame.src = "";
+                var navbar = document.querySelector(".navbar");
+                if (navbar) navbar.style.display = navbar.dataset.prevDisplay || "";
+            };
+
+            document.getElementById("game-btn-fullscreen").onclick = function () {
+                if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+                else document.exitFullscreen();
+            };
+
+            document.getElementById("game-btn-newtab").onclick = function () {
+                if (!frame.src) return;
+                const w = window.open("about:blank", "_blank");
+                if (!w) return;
+                const iframe = w.document.createElement("iframe");
+                iframe.src = frame.src;
+                iframe.style.position = "fixed";
+                iframe.style.top = "0";
+                iframe.style.left = "0";
+                iframe.style.width = "100%";
+                iframe.style.height = "100%";
+                iframe.style.border = "none";
+                w.document.body.style.margin = "0";
+                w.document.body.style.background = "#000";
+                w.document.body.appendChild(iframe);
+            };
+
+            document.getElementById("game-btn-download").onclick = function () {
+                if (!frame.src) return;
+                var a = document.createElement("a");
+                a.href = frame.src;
+                a.download = (title.textContent || "game").replace(/\s+/g, "_") + ".html";
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            };
+        });
+    </script>
+</body>
+</html>

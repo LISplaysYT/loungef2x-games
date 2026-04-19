@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sentinel - Music</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <link rel="stylesheet" href="/static/music.css" />
+  <script src="/static/navbar.js" defer></script>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #0f1829;
+      --panel2: #2a1114;
+      --text: #e8f2ff;
+      --muted: #ffb3b7;
+      --border: #7a1b22;
+      --accent: #e50914;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: radial-gradient(1200px 600px at 50% 0%, rgba(229, 9, 20, 0.18), transparent 70%),
+                  linear-gradient(180deg, #070b14 0%, var(--bg) 50%, #060a12 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    a { color: inherit; }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(6, 10, 18, 0.75);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(122, 27, 34, 0.45);
+    }
+
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+    }
+
+    .logo {
+      margin: 0;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      min-width: 0;
+    }
+
+    .tagline-link {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(44, 90, 160, 0.35);
+      background: rgba(44, 90, 160, 0.12);
+      max-width: 320px;
+    }
+
+    .tagline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nav-link {
+      text-decoration: none;
+      font-weight: 600;
+      color: rgba(232, 242, 255, 0.82);
+      padding: 6px 10px;
+      border-radius: 10px;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .nav-link:hover {
+      background: rgba(74, 144, 226, 0.14);
+      border-color: rgba(44, 90, 160, 0.35);
+      color: #fff;
+    }
+
+    .nav-link.active {
+      background: rgba(74, 144, 226, 0.22);
+      border-color: rgba(74, 144, 226, 0.45);
+      color: #fff;
+    }
+
+    .search-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
+
+    .search-section input {
+      width: min(360px, 44vw);
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(44, 90, 160, 0.45);
+      background: rgba(15, 24, 41, 0.75);
+      color: var(--text);
+      outline: none;
+    }
+
+    .search-section input::placeholder { color: rgba(160, 196, 255, 0.75); }
+
+    .search-section input:focus {
+      border-color: rgba(74, 144, 226, 0.65);
+      box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.25);
+    }
+
+    .search-section button {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid rgba(44, 90, 160, 0.45);
+      background: rgba(74, 144, 226, 0.18);
+      color: #fff;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+
+    .search-section button:hover {
+      background: rgba(74, 144, 226, 0.28);
+      transform: translateY(-1px);
+    }
+
+    .main-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 28px 18px 42px;
+    }
+
+    .footer {
+      border-top: 1px solid rgba(44, 90, 160, 0.28);
+      background: rgba(6, 10, 18, 0.6);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 18px;
+      color: rgba(232, 242, 255, 0.75);
+      font-size: 0.9rem;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer a {
+      color: rgba(160, 196, 255, 0.9);
+      text-decoration: none;
+    }
+
+    .footer a:hover { text-decoration: underline; }
+
+    .footer-main {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+    }
+
+    @media (max-width: 760px) {
+      .header-content { flex-direction: column; align-items: stretch; }
+      .search-section input { width: 100%; }
+      .search-section { justify-content: center; }
+      .tagline-link { max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo-section">
+        <h1 class="logo">Sentinel</h1>
+        <div class="nav-links">
+          <a href="/" class="tagline-link">
+            <span class="tagline">Movies, TV and More</span>
+          </a>
+          <a href="/news" class="nav-link">News</a>
+          <a href="/live-tv" class="nav-link">Live TV</a>
+          <a href="/music" class="nav-link active">Music</a>
+        </div>
+      </div>
+      <div class="search-section">
+        <input type="text" id="search-input" placeholder="Search for any song..." />
+        <button id="search-btn">🔍</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="music-section">
+      <h1 class="page-title">Music Player</h1>
+
+      <div class="music-search-container">
+        <input type="text" class="music-search-input" placeholder="Search for any song..." id="searchInput"/>
+        <div class="search-results" id="searchResults"></div>
+      </div>
+
+      <div class="music-main-container">
+        <div class="player">
+          <div class="album-art">
+            <i class="fa-solid fa-music" id="musicIcon"></i>
+            <img src="" alt="Album" id="albumCover" crossorigin="anonymous" style="display: none;"/>
+          </div>
+          <div class="info" id="playerInfo">
+
+            <div class="track-title" id="trackTitle">Not Playing</div>
+            <div class="artist" id="artistName"></div>
+            <div class="controls">
+              <div class="control-row">
+                <i id="backward10" class="fas fa-backward control-btn"></i>
+                <i id="backward5" class="fa-solid fa-chevron-left control-btn"></i>
+                <i id="playPause" class="fa-solid fa-play control-btn"></i>
+                <i id="forward5" class="fa-solid fa-chevron-right control-btn"></i>
+                <i id="forward10" class="fas fa-forward control-btn"></i>
+              </div>
+              <div class="control-row">
+                <i id="loopToggle" class="fa-solid fa-repeat control-btn"></i>
+                <i id="volumeBtn" class="fa-solid fa-volume-high control-btn"></i>
+                <i id="favoriteBtn" class="fa-regular fa-heart control-btn"></i>
+              </div>
+            </div>
+            <div id="seekbar" class="seekbar"><div id="progress"></div></div>
+            <div class="timecodes">
+              <span id="currentTime">0:00</span>
+              <span id="remainingTime">-0:00</span>
+            </div>
+          </div>
+          <div class="lyrics-info" id="lyricsInfo">
+            <div class="lyrics-content" id="lyricsContent"></div>
+          </div>
+        </div>
+
+        <div class="favorites-column" id="favoritesColumn">
+          <div class="favorites-title">Favorite List</div>
+          <div class="play-favorites-btn" id="playFavoritesBtn"><i class="fas fa-play"></i> Play Favorites</div>
+          <div id="favoritesList"></div>
+        </div>
+      </div>
+
+      <div class="lyrics-toggle" id="lyricsToggle">
+        <i class="fa-solid fa-align-left"></i>
+      </div>
+    </section>
+  </main>
+
+  <div id="player-container">
+    <div id="ytPlayer"></div>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-credits">
+        Music Player Code Borrowed from <a href="https://petezahgames.com" target="_blank" rel="noopener noreferrer">PeteZah</a>
+      </div>
+      <div class="footer-main">
+        <div class="footer-copyright">
+          © 2026 LoungeF2X owned by LIS. All rights reserved.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/static/music.js" defer></script>
+</body>
+</html>
