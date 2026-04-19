@@ -1,0 +1,311 @@
+{
+  "version": 1,
+  "about": "Paths are relative to the /static/ root on jsDelivr (same folder as this JSON). Host this repo on GitHub and use: https://cdn.jsdelivr.net/gh/USER/REPO@BRANCH/static/loungef2x-games-manifest.json",
+  "games": [
+    {
+      "name": "1v1.lol",
+      "embed": "sources/1v1lol.html",
+      "thumb": "images/1v1lol.png"
+    },
+    {
+      "name": "Drive Mad",
+      "embed": "sources/drivemad.html",
+      "thumb": "images/drivemad.png"
+    },
+    {
+      "name": "Basket Random",
+      "embed": "sources/basketrandom.html",
+      "thumb": "images/basketrandom.png"
+    },
+    {
+      "name": "Getaway Shootout",
+      "embed": "sources/getawayshootout.html",
+      "thumb": "images/getawayshootout.png"
+    },
+    {
+      "name": "Doge Miner",
+      "embed": "sources/dogeminer.html",
+      "thumb": "images/dogeminer.png"
+    },
+    {
+      "name": "Idle Breakout",
+      "embed": "sources/idlebreakout.html",
+      "thumb": "images/idlebreakout.png"
+    },
+    {
+      "name": "Pixel Gun 3D",
+      "embed": "sources/pixelgun3d.html",
+      "thumb": "images/pixelgun3d.png"
+    },
+    {
+      "name": "Pixel Shooter",
+      "embed": "sources/pixelshooter.html",
+      "thumb": "images/pixelshooter.png"
+    },
+    {
+      "name": "Tag Game",
+      "embed": "sources/taggame.html",
+      "thumb": "images/taggame.png"
+    },
+    {
+      "name": "Gunspin",
+      "embed": "sources/gunspin.html",
+      "thumb": "images/gunspin.png"
+    },
+    {
+      "name": "Smash Karts",
+      "embed": "sources/smashkarts.html",
+      "thumb": "images/smashkarts.png"
+    },
+    {
+      "name": "Cluster Rush",
+      "embed": "sources/clusterrush.html",
+      "thumb": "images/clusterrush.png"
+    },
+    {
+      "name": "Death Run 3D",
+      "embed": "sources/deathrun3d.html",
+      "thumb": "images/deathrun3d.png"
+    },
+    {
+      "name": "Bob The Robber 2",
+      "embed": "sources/bobtherobber2.html",
+      "thumb": "images/bobtherobber.png"
+    },
+    {
+      "name": "Snow Rider",
+      "embed": "sources/snowrider3d.html",
+      "thumb": "images/snowrider3d.png"
+    },
+    {
+      "name": "Moto X3M",
+      "embed": "sources/motox3m.html",
+      "thumb": "images/motox3m.png"
+    },
+    {
+      "name": "Minecraft",
+      "embed": "sources/minecraft.html",
+      "thumb": "images/minecraft.png"
+    },
+    {
+      "name": "Cookie Clicker",
+      "embed": "sources/cookieclicker.html",
+      "thumb": "images/cookieclicker.png"
+    },
+    {
+      "name": "2048",
+      "embed": "sources/2048.html",
+      "thumb": "images/2048.png"
+    },
+    {
+      "name": "Happy Wheels",
+      "embed": "sources/happywheels.html",
+      "thumb": "images/happywheels.png"
+    },
+    {
+      "name": "Escape Road",
+      "embed": "sources/escaperoad.html",
+      "thumb": "images/escaperoad.png"
+    },
+    {
+      "name": "Escape Road 2",
+      "embed": "sources/escaperoad2.html",
+      "thumb": "images/escaperoad2.png"
+    },
+    {
+      "name": "Block Blast",
+      "embed": "sources/blockblast.html",
+      "thumb": "images/blockblast.png"
+    },
+    {
+      "name": "Time Shooter",
+      "embed": "sources/timeshooter.html",
+      "thumb": "images/timeshooter.png"
+    },
+    {
+      "name": "Crazy Cattle 3D",
+      "embed": "sources/crazycattle3d.html",
+      "thumb": "images/crazycattle3d.png"
+    },
+    {
+      "name": "Ragdoll Archers",
+      "embed": "sources/ragdollarchers.html",
+      "thumb": "images/ragdollarchers.png"
+    },
+    {
+      "name": "10 Minutes Till Dawn",
+      "embed": "sources/10 Minutes Till Dawn.html",
+      "thumb": "images/10MinutesTillDawn.png"
+    },
+    {
+      "name": "A Small World Cup",
+      "embed": "sources/A Small World Cup.html",
+      "thumb": "images/ASmallWorldCup.png"
+    },
+    {
+      "name": "Amaze",
+      "embed": "sources/Amaze.html",
+      "thumb": "images/Amaze.png"
+    },
+    {
+      "name": "Baldi's Basics Plus",
+      "embed": "sources/Baldi's Basics Plus.html",
+      "thumb": "images/BaldisBasicsPlus.png"
+    },
+    {
+      "name": "Bart Blast",
+      "embed": "sources/Bart Blast.html",
+      "thumb": "images/BartBlast.png"
+    },
+    {
+      "name": "Basket Bros",
+      "embed": "sources/Basket Bros.html",
+      "thumb": "images/BasketBros.png"
+    },
+    {
+      "name": "Basket Random",
+      "embed": "sources/Basket Random.html",
+      "thumb": "images/BasketRandom.png"
+    },
+    {
+      "name": "ULTRAKILL",
+      "embed": "sources/ULTRAKILL.html",
+      "thumb": "images/ULTRAKILL.png"
+    },
+    {
+      "name": "Untitled Goose Game",
+      "embed": "sources/Untitled Goose Game.html",
+      "thumb": "images/UntitledGooseGame.png"
+    },
+    {
+      "name": "Bendy and the Ink Machine",
+      "embed": "sources/Bendy and the Ink Machine.html",
+      "thumb": "images/BendyAndTheInkMachine.png"
+    },
+    {
+      "name": "BitLife",
+      "embed": "sources/BitLife.html",
+      "thumb": "images/BitLife.png"
+    },
+    {
+      "name": "Boxing Random",
+      "embed": "sources/Boxing Random.html",
+      "thumb": "images/BoxingRandom.png"
+    },
+    {
+      "name": "Buckshot Roulette",
+      "embed": "sources/Buckshot Roulette.html",
+      "thumb": "images/BuckshotRoulette.png"
+    },
+    {
+      "name": "Cuphead",
+      "embed": "sources/Cuphead.html",
+      "thumb": "images/Cuphead.png"
+    },
+    {
+      "name": "Dragon vs Bricks",
+      "embed": "sources/Dragon vs Bricks.html",
+      "thumb": "images/DragonVsBricks.png"
+    },
+    {
+      "name": "Endoparasitic",
+      "embed": "sources/Endoparasitic.html",
+      "thumb": "images/Endoparasitic.png"
+    },
+    {
+      "name": "Escape Road 3",
+      "embed": "sources/EscapeRoad3.html",
+      "thumb": "images/EscapeRoad3.png"
+    },
+    {
+      "name": "A Difficult Game About Climbing",
+      "embed": "sources/A Difficult Game About Climbing.html",
+      "thumb": "images/ADifficultGameAboutClimbing.png"
+    },
+    {
+      "name": "Five Nights at Epstein's",
+      "embed": "sources/Five Nights at Epstein's.html",
+      "thumb": "images/FiveNightsAtEpsteins.png"
+    },
+    {
+      "name": "Five Nights at Freddy's: Sister Location",
+      "embed": "sources/Five Nights at Freddy's_ Sister Location.html",
+      "thumb": "images/FiveNightsAtFreddysSisterLocation.png"
+    },
+    {
+      "name": "Geometry Dash Lite (Remake)",
+      "embed": "sources/Geometry Dash Lite (REMAKE).html",
+      "thumb": "images/GeometryDash.png"
+    },
+    {
+      "name": "Granny",
+      "embed": "sources/Granny.html",
+      "thumb": "images/Granny.png"
+    },
+    {
+      "name": "Half Life",
+      "embed": "sources/Half Life.html",
+      "thumb": "images/HalfLife.png"
+    },
+    {
+      "name": "Hollow Knight",
+      "embed": "sources/Hollow Knight.html",
+      "thumb": "images/HollowKnight.png"
+    },
+    {
+      "name": "Hollow Knight: Silksong",
+      "embed": "sources/Hollow Knight_ Silksong.html",
+      "thumb": "images/HollowKnightSilksong.png"
+    },
+    {
+      "name": "Iron Lung",
+      "embed": "sources/Iron Lung.html",
+      "thumb": "images/IronLung.png"
+    },
+    {
+      "name": "Kindergarten",
+      "embed": "sources/Kindergarten.html",
+      "thumb": "images/Kindergarten.png"
+    },
+    {
+      "name": "People Playground",
+      "embed": "sources/PeoplePlayground.html",
+      "thumb": "images/PeoplePlayground.png"
+    },
+    {
+      "name": "Retro Bowl",
+      "embed": "sources/Retro Bowl.html",
+      "thumb": "images/RetroBowl.png"
+    },
+    {
+      "name": "Tetris",
+      "embed": "sources/Tetris.html",
+      "thumb": "images/Tetris.png"
+    },
+    {
+      "name": "That's Not My Neighbor",
+      "embed": "sources/That's Not My Neighbor.html",
+      "thumb": "images/ThatsNotMyNeighbor.png"
+    },
+    {
+      "name": "Google Baseball",
+      "embed": "sources/Google Baseball.html",
+      "thumb": "images/GoogleBaseball.png"
+    },
+    {
+      "name": "Cut the Rope",
+      "embed": "sources/cuttherope.html",
+      "thumb": "images/cuttherope.png"
+    },
+    {
+      "name": "Karlson",
+      "embed": "sources/Karlson.html",
+      "thumb": "images/Karlson.png"
+    },
+    {
+      "name": "Breath of the Wild NDS",
+      "embed": "sources/Breath of the Wild NDS.html",
+      "thumb": "images/BreathOfTheWildNDS.png"
+    }
+  ]
+}
