@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Netflix Clone</title>
+  <style>* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #111;
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  /* Intro */
+  
+  #intro {
+    position: fixed;
+    inset: 0;
+  
+    background: black;
+  
+    z-index: 999999;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #intro video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Header */
+  
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  
+    padding: 20px 40px;
+  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(0,0,0,.95),
+        transparent
+      );
+  
+    z-index: 100;
+  }
+  
+  .logo {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+  
+  #search {
+    width: 320px;
+  
+    padding: 10px 14px;
+  
+    border-radius: 4px;
+    border: 1px solid #444;
+  
+    background: rgba(0,0,0,.8);
+  
+    color: white;
+  }
+  
+  /* Hero */
+  
+  #hero {
+    height: 80vh;
+  
+    background-size: cover;
+    background-position: center;
+  
+    display: flex;
+    align-items: end;
+  
+    padding: 80px;
+  
+    position: relative;
+  }
+  
+  #hero::before {
+    content: "";
+  
+    position: absolute;
+    inset: 0;
+  
+    background:
+      linear-gradient(
+        to top,
+        #111 5%,
+        transparent 60%
+      );
+  }
+  
+  .hero-overlay {
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+  }
+  
+  .hero-overlay h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+  
+  .hero-overlay p {
+    color: #ddd;
+    line-height: 1.6;
+  }
+  
+  /* Content */
+  
+  main {
+    padding: 20px 40px 60px;
+  }
+  
+  h2 {
+    margin: 25px 0 15px;
+  }
+  
+  .row {
+    display: flex;
+    gap: 15px;
+  
+    overflow-x: auto;
+    overflow-y: hidden;
+  
+    padding-bottom: 10px;
+  }
+  
+  .row::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Cards */
+  
+  .card {
+    min-width: 220px;
+    height: 330px;
+  
+    border-radius: 6px;
+  
+    overflow: hidden;
+  
+    cursor: pointer;
+    position: relative;
+  
+    background: #222;
+  
+    transition: .25s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.08);
+    z-index: 2;
+  }
+  
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .cardTitle {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  
+    padding: 12px;
+  
+    background:
+      linear-gradient(
+        to top,
+        rgba(0,0,0,.95),
+        transparent
+      );
+  }
+  
+  /* Modal */
+  
+  #playerModal {
+    position: fixed;
+    inset: 0;
+  
+    background: rgba(0,0,0,.96);
+  
+    z-index: 99999;
+  
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #playerModal.hidden {
+    display: none !important;
+  }
+  
+  #playerModal:not(.hidden) {
+    display: flex;
+  }
+  
+  #playerFrame {
+    width: 90%;
+    height: 90%;
+  
+    border: none;
+    border-radius: 10px;
+  }
+  
+  /* Close */
+  
+  #closePlayer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  
+    border: none;
+  
+    background: rgba(0,0,0,.7);
+    color: white;
+  
+    font-size: 2rem;
+  
+    cursor: pointer;
+  
+    z-index: 100;
+  }
+  
+  /* Netflix Overview */
+  
+  #infoPanel {
+    position: absolute;
+    inset: 0;
+  
+    background: rgba(0,0,0,.88);
+  
+    z-index: 20;
+  
+    overflow-y: auto;
+  }
+  
+  #infoBackdrop {
+    position: absolute;
+    inset: 0;
+  
+    background-size: cover;
+    background-position: center;
+  
+    opacity: .35;
+    filter: blur(10px);
+  
+    transform: scale(1.1);
+  }
+  
+  #infoContent {
+    position: relative;
+    z-index: 2;
+  
+    max-width: 900px;
+  
+    padding: 60px;
+  }
+  
+  #infoTitle {
+    font-size: 4rem;
+    margin-bottom: 20px;
+  }
+  
+  #infoMeta {
+    display: flex;
+    gap: 15px;
+  
+    margin-bottom: 20px;
+  
+    color: #ccc;
+  }
+  
+  #infoOverview {
+    font-size: 1.1rem;
+    line-height: 1.7;
+  
+    max-width: 700px;
+  
+    color: #ddd;
+  }
+  
+  #infoButtons {
+    margin-top: 30px;
+  
+    display: flex;
+    gap: 15px;
+  }
+  
+  #playNow,
+  #closeInfo {
+    border: none;
+  
+    padding: 14px 26px;
+  
+    border-radius: 4px;
+  
+    font-size: 1rem;
+  
+    cursor: pointer;
+  }
+  
+  #playNow {
+    background: white;
+    color: black;
+  }
+  
+  #closeInfo {
+    background: rgba(255,255,255,.15);
+    color: white;
+  }
+  
+  /* Episode Controls */
+  
+  #episodeControls {
+    position: absolute;
+  
+    top: 20px;
+    left: 20px;
+  
+    z-index: 50;
+  
+    display: flex;
+    gap: 10px;
+  }
+  
+  #episodeControls select,
+  #episodeControls button {
+    padding: 10px 14px;
+  
+    border-radius: 4px;
+  
+    background: rgba(20,20,20,.95);
+  
+    color: white;
+  
+    border: 1px solid #444;
+  }
+  
+  #episodeControls button {
+    background: #e50914;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Mobile */
+  
+  @media(max-width: 700px) {
+  
+    #hero {
+      height: 65vh;
+      padding: 30px;
+    }
+  
+    .hero-overlay h1 {
+      font-size: 2rem;
+    }
+  
+    #search {
+      width: 160px;
+    }
+  
+    .card {
+      min-width: 160px;
+      height: 240px;
+    }
+  
+    #infoContent {
+      padding: 30px;
+    }
+  
+    #infoTitle {
+      font-size: 2.4rem;
+    }
+  
+    #episodeControls {
+      flex-direction: column;
+    }
+  }/* =========================
+     NETFLIX POLISH LAYER
+  ========================= */
+  
+  /* Smooth fade-in for cards */
+  .card {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeIn .4s ease forwards;
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Better hover glow */
+    .card:hover {
+      box-shadow: 0 10px 30px rgba(0,0,0,.6);
+    }
+    
+    /* Smooth page feel */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Header glass effect */
+    header {
+      backdrop-filter: blur(10px);
+    }
+    
+    /* Hero stronger cinematic look */
+    #hero {
+      box-shadow: inset 0 -120px 120px rgba(0,0,0,.9);
+    }
+    
+    /* Row spacing improvement */
+    .row {
+      padding-bottom: 20px;
+      scroll-snap-type: x mandatory;
+    }
+    
+    .card {
+      scroll-snap-align: start;
+    }
+    
+    /* Scrollbar styling (better than hidden) */
+    .row::-webkit-scrollbar {
+      height: 6px;
+    }
+    
+    .row::-webkit-scrollbar-thumb {
+      background: #e50914;
+      border-radius: 10px;
+    }
+    
+    .row::-webkit-scrollbar-track {
+      background: rgba(255,255,255,.05);
+    }
+    
+    /* Modal cinematic feel */
+    #playerModal {
+      backdrop-filter: blur(8px);
+    }
+    
+    /* Info panel upgrade */
+    #infoPanel {
+      animation: panelIn .25s ease;
+    }
+    
+    @keyframes panelIn {
+      from {
+        opacity: 0;
+        transform: scale(1.02);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    /* Buttons feel more Netflix-like */
+    #playNow {
+      transition: .2s ease;
+    }
+    
+    #playNow:hover {
+      transform: scale(1.05);
+      background: #f5f5f5;
+    }
+    
+    /* Close button hover */
+    #closePlayer:hover,
+    #closeInfo:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Search glow focus */
+    #search:focus {
+      outline: none;
+      border-color: #e50914;
+      box-shadow: 0 0 10px rgba(229,9,20,.4);
+    }
+    
+    /* Hero text shadow for readability */
+    .hero-overlay h1 {
+      text-shadow: 0 5px 20px rgba(0,0,0,.8);
+    }
+    
+    .hero-overlay p {
+      text-shadow: 0 3px 15px rgba(0,0,0,.8);
+    }
+    /* =========================
+     NETFLIX POLISH LAYER
+  ========================= */
+  
+  /* Smooth fade-in for cards */
+  .card {
+      opacity: 0;
+      transform: translateY(10px);
+      animation: fadeIn .4s ease forwards;
+    }
+    
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    /* Better hover glow */
+    .card:hover {
+      box-shadow: 0 10px 30px rgba(0,0,0,.6);
+    }
+    
+    /* Smooth page feel */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Header glass effect */
+    header {
+      backdrop-filter: blur(10px);
+    }
+    
+    /* Hero stronger cinematic look */
+    #hero {
+      box-shadow: inset 0 -120px 120px rgba(0,0,0,.9);
+    }
+    
+    /* Row spacing improvement */
+    .row {
+      padding-bottom: 20px;
+      scroll-snap-type: x mandatory;
+    }
+    
+    .card {
+      scroll-snap-align: start;
+    }
+    
+    /* Scrollbar styling (better than hidden) */
+    .row::-webkit-scrollbar {
+      height: 6px;
+    }
+    
+    .row::-webkit-scrollbar-thumb {
+      background: #e50914;
+      border-radius: 10px;
+    }
+    
+    .row::-webkit-scrollbar-track {
+      background: rgba(255,255,255,.05);
+    }
+    
+    /* Modal cinematic feel */
+    #playerModal {
+      backdrop-filter: blur(8px);
+    }
+    
+    /* Info panel upgrade */
+    #infoPanel {
+      animation: panelIn .25s ease;
+    }
+    
+    @keyframes panelIn {
+      from {
+        opacity: 0;
+        transform: scale(1.02);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    
+    /* Buttons feel more Netflix-like */
+    #playNow {
+      transition: .2s ease;
+    }
+    
+    #playNow:hover {
+      transform: scale(1.05);
+      background: #f5f5f5;
+    }
+    
+    /* Close button hover */
+    #closePlayer:hover,
+    #closeInfo:hover {
+      transform: scale(1.1);
+    }
+    
+    /* Search glow focus */
+    #search:focus {
+      outline: none;
+      border-color: #e50914;
+      box-shadow: 0 0 10px rgba(229,9,20,.4);
+    }
+    
+    /* Hero text shadow for readability */
+    .hero-overlay h1 {
+      text-shadow: 0 5px 20px rgba(0,0,0,.8);
+    }
+    
+    .hero-overlay p {
+      text-shadow: 0 3px 15px rgba(0,0,0,.8);
+    }</style>
+</head>
+<body>
+
+  <!-- Intro -->
+  <div id="intro">
+    <video id="introVideo" autoplay>
+      <source src="https://d3ht7913zi09ga.cloudfront.net/5zpg/2026/05/08/04/45/cOhjfGnt643/sc.mp4?&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9kM2h0NzkxM3ppMDlnYS5jbG91ZGZyb250Lm5ldC81enBnLzIwMjYvMDUvMDgvMDQvNDUvY09oamZHbnQ2NDMvc2MubXA0PyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3ODIxNjE5MX19fV19&Signature=O~cTU14W7UQsFfOLLTAVTf9Igs78DqO7sAKNJmoGnEkC2WMohchMVGOFmxp4B0-j~xuenttJNca~h4PhPe~dLzQU-z2kesUUbLx--TOmvjye3XzVmpE7fvzGaFSsjpBCwnd7xX0sWCtcyAF2rzfbft2FAhkqg7jJVZNyB3sTWKI_&Key-Pair-Id=APKAI4E2RN57D46ONMEQ" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Main App -->
+  <div id="app" class="hidden">
+
+    <header>
+      <div class="logo">NETFLIX</div>
+
+      <input
+        type="text"
+        id="search"
+        placeholder="Search movies or TV shows..."
+      >
+    </header>
+
+    <!-- Hero -->
+    <section id="hero">
+      <div class="hero-overlay">
+        <h1 id="heroTitle"></h1>
+        <p id="heroDesc"></p>
+      </div>
+    </section>
+
+    <!-- Rows -->
+    <main>
+
+      <h2>Trending</h2>
+      <div class="row" id="trending"></div>
+
+      <h2>Popular Movies</h2>
+      <div class="row" id="movies"></div>
+
+      <h2>Popular TV Shows</h2>
+      <div class="row" id="tv"></div>
+
+    </main>
+
+  </div>
+
+  <!-- Player Modal -->
+  <div id="playerModal" class="hidden">
+
+    <button id="closePlayer">✕</button>
+
+    <!-- Netflix Info Panel -->
+    <div id="infoPanel" class="hidden">
+
+      <div id="infoBackdrop"></div>
+
+      <div id="infoContent">
+
+        <h1 id="infoTitle"></h1>
+
+        <div id="infoMeta">
+          <span id="infoYear"></span>
+          <span id="infoRating"></span>
+          <span id="infoType"></span>
+        </div>
+
+        <p id="infoOverview"></p>
+
+        <div id="infoButtons">
+          <button id="playNow">▶ Play</button>
+          <button id="closeInfo">✕ Close</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- TV Controls -->
+    <div id="episodeControls" class="hidden">
+      <select id="seasonSelect"></select>
+      <select id="episodeSelect"></select>
+      <button id="startEpisode">Play</button>
+    </div>
+
+    <!-- Video -->
+    <iframe
+      id="playerFrame"
+      allowfullscreen
+    ></iframe>
+
+  </div>
+
+<script>const API_KEY = "0e33c92186263620ce8c7f6b8fb35b00";
+
+    const BASE = "https://api.themoviedb.org/3";
+    const IMG = "https://image.tmdb.org/t/p/original";
+    
+    /* Elements */
+    
+    const trendingEl = document.getElementById("trending");
+    const moviesEl = document.getElementById("movies");
+    const tvEl = document.getElementById("tv");
+    
+    const hero = document.getElementById("hero");
+    const heroTitle = document.getElementById("heroTitle");
+    const heroDesc = document.getElementById("heroDesc");
+    
+    const playerModal = document.getElementById("playerModal");
+    const playerFrame = document.getElementById("playerFrame");
+    
+    const closePlayer = document.getElementById("closePlayer");
+    
+    const intro = document.getElementById("intro");
+    const introVideo = document.getElementById("introVideo");
+    const app = document.getElementById("app");
+    
+    const infoPanel = document.getElementById("infoPanel");
+    const infoBackdrop = document.getElementById("infoBackdrop");
+    const infoTitle = document.getElementById("infoTitle");
+    const infoYear = document.getElementById("infoYear");
+    const infoRating = document.getElementById("infoRating");
+    const infoType = document.getElementById("infoType");
+    const infoOverview = document.getElementById("infoOverview");
+    
+    const playNow = document.getElementById("playNow");
+    const closeInfo = document.getElementById("closeInfo");
+    
+    const episodeControls = document.getElementById("episodeControls");
+    const seasonSelect = document.getElementById("seasonSelect");
+    const episodeSelect = document.getElementById("episodeSelect");
+    const startEpisode = document.getElementById("startEpisode");
+    
+    const searchInput = document.getElementById("search");
+    
+    /* Intro */
+    
+    introVideo.onended = () => {
+      intro.remove();
+      app.classList.remove("hidden");
+    };
+    
+    /* Fetch */
+    
+    async function fetchData(endpoint) {
+    
+      const res = await fetch(
+        `${BASE}${endpoint}${
+          endpoint.includes("?") ? "&" : "?"
+        }api_key=${API_KEY}`
+      );
+    
+      return res.json();
+    }
+    
+    /* Hero */
+    
+    function setHero(item) {
+    
+      hero.style.backgroundImage =
+        `url(${IMG}${item.backdrop_path})`;
+    
+      heroTitle.textContent =
+        item.title || item.name;
+    
+      heroDesc.textContent =
+        item.overview || "No description available.";
+    }
+    
+    /* Cards */
+    
+    function createCard(item, type) {
+    
+      const card = document.createElement("div");
+    
+      card.className = "card";
+    
+      card.innerHTML = `
+        <img src="${IMG}${item.poster_path}" alt="">
+    
+        <div class="cardTitle">
+          ${item.title || item.name}
+        </div>
+      `;
+    
+      card.onclick = () => playVideo(item.id, type);
+    
+      return card;
+    }
+    
+    /* Current Show */
+    
+    let currentShowId = null;
+    
+    /* Play */
+    
+    async function playVideo(id, type) {
+    
+      playerModal.classList.remove("hidden");
+    
+      const details = await fetchData(
+        `/${type}/${id}`
+      );
+    
+      infoPanel.classList.remove("hidden");
+    
+      infoBackdrop.style.backgroundImage =
+        `url(${IMG}${details.backdrop_path})`;
+    
+      infoTitle.textContent =
+        details.title || details.name;
+    
+      infoOverview.textContent =
+        details.overview || "No overview available.";
+    
+      infoYear.textContent =
+        (details.release_date || details.first_air_date || "")
+        .split("-")[0];
+    
+      infoRating.textContent =
+        `⭐ ${details.vote_average.toFixed(1)}`;
+    
+      infoType.textContent =
+        type === "movie"
+        ? "Movie"
+        : "TV Show";
+    
+      playNow.onclick = async () => {
+    
+        infoPanel.classList.add("hidden");
+    
+        /* Movie */
+    
+        if (type === "movie") {
+    
+          episodeControls.classList.add("hidden");
+    
+          playerFrame.src =
+            `https://multiembed.mov/?video_id=${id}&tmdb=1`;
+    
+          return;
+        }
+    
+        /* TV */
+    
+        currentShowId = id;
+    
+        episodeControls.classList.remove("hidden");
+    
+        seasonSelect.innerHTML = "";
+    
+        details.seasons.forEach(season => {
+    
+          if (season.season_number === 0) return;
+    
+          const option = document.createElement("option");
+    
+          option.value = season.season_number;
+    
+          option.textContent =
+            `Season ${season.season_number}`;
+    
+          seasonSelect.appendChild(option);
+        });
+    
+        loadEpisodes(id, seasonSelect.value);
+      };
+    }
+    
+    /* Episodes */
+    
+    async function loadEpisodes(id, season) {
+    
+      const data = await fetchData(
+        `/tv/${id}/season/${season}`
+      );
+    
+      episodeSelect.innerHTML = "";
+    
+      data.episodes.forEach(ep => {
+    
+        const option = document.createElement("option");
+    
+        option.value = ep.episode_number;
+    
+        option.textContent =
+          `Episode ${ep.episode_number} - ${ep.name}`;
+    
+        episodeSelect.appendChild(option);
+      });
+    }
+    
+    seasonSelect.addEventListener("change", () => {
+    
+      loadEpisodes(
+        currentShowId,
+        seasonSelect.value
+      );
+    });
+    
+    /* Start Episode */
+    
+    startEpisode.addEventListener("click", () => {
+    
+      const season = seasonSelect.value;
+      const episode = episodeSelect.value;
+    
+      playerFrame.src =
+        `https://multiembed.mov/?video_id=${currentShowId}&tmdb=1&s=${season}&e=${episode}`;
+    });
+    
+    /* Close */
+    
+    closePlayer.onclick = () => {
+    
+      playerModal.classList.add("hidden");
+    
+      infoPanel.classList.add("hidden");
+    
+      playerFrame.src = "";
+    };
+    
+    closeInfo.onclick = () => {
+    
+      playerModal.classList.add("hidden");
+    
+      infoPanel.classList.add("hidden");
+    
+      playerFrame.src = "";
+    };
+    
+    /* Home */
+    
+    async function loadHome() {
+    
+      trendingEl.innerHTML = "";
+      moviesEl.innerHTML = "";
+      tvEl.innerHTML = "";
+    
+      const trending = await fetchData(
+        "/trending/all/week"
+      );
+    
+      const movies = await fetchData(
+        "/movie/popular"
+      );
+    
+      const tv = await fetchData(
+        "/tv/popular"
+      );
+    
+      setHero(trending.results[0]);
+    
+      trending.results.forEach(item => {
+    
+        if (!item.poster_path) return;
+    
+        const type =
+          item.media_type === "tv"
+          ? "tv"
+          : "movie";
+    
+        trendingEl.appendChild(
+          createCard(item, type)
+        );
+      });
+    
+      movies.results.forEach(item => {
+    
+        if (!item.poster_path) return;
+    
+        moviesEl.appendChild(
+          createCard(item, "movie")
+        );
+      });
+    
+      tv.results.forEach(item => {
+    
+        if (!item.poster_path) return;
+    
+        tvEl.appendChild(
+          createCard(item, "tv")
+        );
+      });
+    }
+    
+    /* Search */
+    
+    searchInput.addEventListener(
+      "input",
+      async (e) => {
+    
+        const q = e.target.value.trim();
+    
+        if (!q) {
+          loadHome();
+          return;
+        }
+    
+        const data = await fetchData(
+          `/search/multi?query=${encodeURIComponent(q)}`
+        );
+    
+        trendingEl.innerHTML = "";
+        moviesEl.innerHTML = "";
+        tvEl.innerHTML = "";
+    
+        data.results.forEach(item => {
+    
+          if (!item.poster_path) return;
+    
+          if (
+            item.media_type !== "movie" &&
+            item.media_type !== "tv"
+          ) return;
+    
+          trendingEl.appendChild(
+            createCard(
+              item,
+              item.media_type
+            )
+          );
+        });
+      }
+    );
+    
+    /* Start */
+    
+    loadHome();</script>>
+
+</body>
+</html>
