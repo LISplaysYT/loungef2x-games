@@ -637,7 +637,7 @@
   <!-- Intro -->
   <div id="intro">
     <video id="introVideo" autoplay>
-      <source src="https://d3ht7913zi09ga.cloudfront.net/5zpg/2026/05/08/04/45/cOhjfGnt643/sc.mp4?&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9kM2h0NzkxM3ppMDlnYS5jbG91ZGZyb250Lm5ldC81enBnLzIwMjYvMDUvMDgvMDQvNDUvY09oamZHbnQ2NDMvc2MubXA0PyIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTc3ODIxNjE5MX19fV19&Signature=O~cTU14W7UQsFfOLLTAVTf9Igs78DqO7sAKNJmoGnEkC2WMohchMVGOFmxp4B0-j~xuenttJNca~h4PhPe~dLzQU-z2kesUUbLx--TOmvjye3XzVmpE7fvzGaFSsjpBCwnd7xX0sWCtcyAF2rzfbft2FAhkqg7jJVZNyB3sTWKI_&Key-Pair-Id=APKAI4E2RN57D46ONMEQ" type="video/mp4">
+      <source src="https://raw.githubusercontent.com/LISplaysYT/loungef2x-games/refs/heads/main/Netflix.mp4" type="video/mp4">
     </video>
   </div>
 
@@ -869,7 +869,7 @@
           episodeControls.classList.add("hidden");
     
           playerFrame.src =
-            `https://multiembed.mov/?video_id=${id}&tmdb=1`;
+            `https://vidrock.ru/movie/${id}`;
     
           return;
         }
@@ -939,7 +939,7 @@
       const episode = episodeSelect.value;
     
       playerFrame.src =
-        `https://multiembed.mov/?video_id=${currentShowId}&tmdb=1&s=${season}&e=${episode}`;
+        `https://vidrock.ru/tv/${currentShowId}/${season}/${episode}`;
     });
     
     /* Close */
