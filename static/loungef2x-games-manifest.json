@@ -3,6 +3,11 @@
   "about": "Paths are relative to the /static/ root on jsDelivr (same folder as this JSON). Host this repo on GitHub and use: https://cdn.jsdelivr.net/gh/USER/REPO@BRANCH/static/loungef2x-games-manifest.json",
   "games": [
     {
+      "name": "Movies",
+      "embed": "sources/movies.html",
+      "thumb": "images/movies.png"
+    },
+    {
       "name": "1v1.lol",
       "embed": "sources/1v1lol.html",
       "thumb": "images/1v1lol.png"
